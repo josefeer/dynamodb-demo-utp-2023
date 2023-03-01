@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>Crear (Create)</h1>
+<div style="max-width: 500px; margin: auto">
+  <form method="POST" action="{{ url_for('create_item') }}">
+
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="nameHelp" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="fecha" class="form-label">Fecha de Nacimiento</label>
+      <input type="date" class="form-control" id="fecha" name="fecha" aria-describedby="fechaHelp" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="pais" class="form-label">País</label>
+      <input type="text" class="form-control" id="pais" name="pais" aria-describedby="paisHelp" required>
+    </div>
+
+    <div class="mt-4">
+      <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+    </div>
+
+  </form>
+</div>
+
+<script>
+
+ var response = "{{ response }}"
+ if (response != "None") {
+   alert("Registro Ingresado con Exito! \n\nRequestId: " + response);
+ }
+
+</script>
+
+{% endblock %}
+

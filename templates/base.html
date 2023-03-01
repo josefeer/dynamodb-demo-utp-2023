@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <title>Proyecto 3 - MMV </title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Proyecto 3 - MMV </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link {% if active_page == 'create' %}active{% endif %}" href="{{ url_for('create') }}">Crear (C)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'read' %}active{% endif %}" href="{{ url_for('read') }}">Leer (R)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'update' %}active{% endif %}" href="{{ url_for('update') }}">Actualizar (U)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'delete' %}active{% endif %}" href="{{ url_for('delete') }}">Eliminar (D)</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-3">
+    {% if request.path == '/' %}
+      <p>Buenas tardes, compañeros esto es un demo de como usar DynamoDB en una applicación web usando Flask (Python)</p>
+      <p>Integrantes</p>
+      <ul>
+        <li>Morales, Andrés (x-xxx-xxx)</li>
+        <li>Morales, Jose Fernando(x-xxx-xxx)</li>
+        <li>Velasco, Carlos(x-xxx-xxx)</li>
+      </ul>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+

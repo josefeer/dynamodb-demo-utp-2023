@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>Actualizar (Update)</h1>
+<div style="max-width: 500px; margin: auto">
+
+  <form method="POST" action="{{ url_for('update_item') }}" class="mt-5">
+
+    <div class="mb-3">
+      <label for="estudiante">Estudiante a editar:</label>
+      <select id="estudiante" name="estudiante" onchange="inputsHandler(this)">
+        <option value="None" selected>-- Selecciona un estudiante --</option>
+        {% for item in items  %}
+        <option value="{{ item.id }}">{{ item.nombre }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="nameHelp" required disabled>
+    </div>
+
+    <div class="mb-3">
+      <label for="fecha" class="form-label">Fecha de Nacimiento</label>
+      <input type="date" class="form-control" id="fecha" name="fecha" aria-describedby="fechaHelp" required disabled>
+    </div>
+
+    <div class="mb-3">
+      <label for="pais" class="form-label">País</label>
+      <input type="text" class="form-control" id="pais" name="pais" aria-describedby="paisHelp" required disabled>
+    </div>
+
+    <div class="mt-4">
+      <button id="ingresarBtn" type="submit" class="btn btn-primary w-100" disabled>Ingresar</button>
+    </div>
+
+  </form>
+</div>
+
+<script>
+
+ var response = "{{ response }}";
+ // var items = {{ items | tojson | safe }};
+
+ var items = {};
+ {% for item in items %}
+   items[{{ item.id }}] = {
+     nombre: "{{ item.nombre }}",
+     fecha: "{{ item.fecha_nacimiento }}",
+     pais: "{{ item.pais}}",
+   }
+ {% endfor %}
+
+ var inputs = ["nombre", "fecha", "pais", "ingresarBtn"];
+
+ if (response != "None") {
+   alert("Registro Actualizado con Exito! \n\nRequestId: " + response);
+ }
+
+ function disableInputs() {
+   inputs.forEach(function(input) {
+     var inputElement = document.getElementById(input);
+     inputElement.value = "";
+     inputElement.setAttribute("disabled", "");
+   });
+ }
+
+ function enableInputs(itemId) {
+   var item = items[itemId]
+   inputs.forEach(function(input) {
+     var inputElement = document.getElementById(input);
+     inputElement.removeAttribute("disabled");
+     
+     switch (input) {
+       case "nombre":
+         inputElement.value = item.nombre;
+         break;
+       case "fecha":
+         inputElement.value = item.fecha;
+         break;
+       case "pais":
+         inputElement.value = item.pais;
+         break;
+       default:
+         break;
+     }
+
+   });
+ }
+
+ function inputsHandler(element) {
+   var itemId = element.value
+   itemId === "None" ? disableInputs() : enableInputs(itemId);
+ }
+
+</script>
+{% endblock %}
+
