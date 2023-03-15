@@ -1,0 +1,64 @@
+{
+  "RECORDS": [
+    {
+      "ID": 1,
+      "ID_Ciclista": 1,
+      "Nombre": "miguel angel lopez",
+      "Correo": "m.lopez@mail.com",
+      "Fecha_inicio": "14/3/2023 00:30:29",
+      "Fecha_final": "14/3/2023 00:30:29",
+      "Tipo": "cadencia",
+      "Medida1": "90",
+      "Medida2": "",
+      "Fecha": "14/3/2023",
+      "hora": 7,
+      "minuto": 36,
+      "segundo": 40
+    },
+    {
+      "ID": 2,
+      "ID_Ciclista": 1,
+      "Nombre": "miguel angel lopez",
+      "Correo": "m.lopez@mail.com",
+      "Fecha_inicio": "14/3/2023 00:31:06",
+      "Fecha_final": "14/3/2023 00:31:06",
+      "Tipo": "velocidad",
+      "Medida1": "30",
+      "Medida2": "",
+      "Fecha": "14/3/2023",
+      "hora": 7,
+      "minuto": 36,
+      "segundo": 40
+    },
+    {
+      "ID": 3,
+      "ID_Ciclista": 3,
+      "Nombre": "Nairo Quintana",
+      "Correo": "n.Quintana@mail.com",
+      "Fecha_inicio": "14/3/2023 00:31:27",
+      "Fecha_final": "14/3/2023 00:31:27",
+      "Tipo": "georeferencia",
+      "Medida1": "1238349832019",
+      "Medida2": "27",
+      "Fecha": "14/3/2023",
+      "hora": 7,
+      "minuto": 36,
+      "segundo": 40
+    },
+    {
+      "ID": 4,
+      "ID_Ciclista": 3,
+      "Nombre": "Nairo Quintana",
+      "Correo": "n.Quintana@mail.com",
+      "Fecha_inicio": "14/3/2023 00:42:33",
+      "Fecha_final": "14/3/2023 00:42:33",
+      "Tipo": "potencia",
+      "Medida1": "250",
+      "Medida2": "",
+      "Fecha": "14/3/2023",
+      "hora": 7,
+      "minuto": 36,
+      "segundo": 40
+    }
+  ]
+}
